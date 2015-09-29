@@ -43,6 +43,8 @@ UDP_PORT_P1 = 6000
 UDP_IP_P2 = "10.0.0.23"
 UDP_PORT_P2 = 6000
 
+UDP_IP_S = "10.0.0.21"
+
 socket = socket(AF_INET, SOCK_DGRAM)
 socket.bind((MY_IP, MY_PORT))
 socket.setblocking(1)
@@ -65,7 +67,7 @@ GPIO.setmode(GPIO.BCM)                                  # initialise RPi.GPIO
 for port_num in ports:
     GPIO.setup(port_num, GPIO.OUT)                  # set up ports for output
 
-
+socket.sendto("gamestart",(UDP_IP_S,MY_PORT))
 
 while True:
 	#DONE = False
@@ -103,6 +105,7 @@ while True:
 		LIGHT_DELAY*=0.7
 socket.sendto("gameover",(UDP_IP_P1,UDP_PORT_P1))
 socket.sendto("gameover", (UDP_IP_P2,UDP_PORT_P2))
+socket.sendto("gameover", (UDP_IP_S,MY_PORT))
 print "Game over. Rounds Survived: ", round
 
 
