@@ -103,15 +103,15 @@ def main():
 		print "Turn activated for Player 1"
 		
 
-		for rep in range(0,7):
+		for rep in range(0,4):
 			#Get response data
-			data = getMessage(socket,0.2)
+			data = getMessage(socket,0.3)
 			print "exited method. Data: ", data
 
 			if data is not None and "player1:click" in data:
 				player1hit=True
 				print "hit"
-				break;
+				break
 
 		if player1hit==False:
 			print "Player 1 Lose"
@@ -128,8 +128,8 @@ def main():
 		
 		#Send signal to player 2 that it has to hit
 		socket.sendto("your turn", (UDP_IP_P2, UDP_PORT_P2))
-		for rep in range(0,7):
-			data = getMessage(socket,0.2)	
+		for rep in range(0,4):
+			data = getMessage(socket,0.3)	
 			if data is not None and "player2:click" in data:
 				player2hit=True
 				print "hit"
