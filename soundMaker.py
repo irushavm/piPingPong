@@ -19,7 +19,7 @@ MY_IP = "10.0.0.21"
 
 #IP and Port for server
 SERVER_IP = "10.0.0.22"	
-UDP_PORT = 
+UDP_PORT = 6000
 
 #For UDP Communications
 BUFFER_SIZE = 512
