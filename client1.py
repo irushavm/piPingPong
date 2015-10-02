@@ -61,7 +61,7 @@ def main():
 
 				#Send a click message to server when button is pressed
 				if pfd.switches[0].value == 1:
-					socket.sendto("click", (UDP_IP, UDP_PORT))
+					socket.sendto("player1:click", (UDP_IP, UDP_PORT))
 					break
 				else:
 					#Check if you successfully sent a click message
